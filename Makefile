@@ -4,10 +4,16 @@ LDFLAGS=$(CXXFLAGS)
 OBJ=$(SRC:.cc=.o)
 all:  tsp
 
-tsp: tsp.o chromosome.o deme.o cities.o
+tsp: tsp.o tournament_deme.o deme.o chromosome.o climb_chromosome.o cities.o
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+tournament_deme: tournament_deme.o deme.o chromosome.o climb_chromosome.o cities.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 deme: deme.o chromosome.o cities.o
+	$(CXX) $(LDFLAGS) -o $@ $^
+
+climb_chromosome: climb_chromosome.o chromosome.o cities.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 chromosome: chromosome.o cities.o
