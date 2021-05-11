@@ -16,12 +16,15 @@
 
 class TournamentDeme : public Deme{
 
+public:
 	// Generate a TournamentDeme of the specified size with all-random chromosomes.
 	// Also receives a mutation rate in the range [0-1].
 	TournamentDeme(const Cities* cities_ptr, unsigned pop_size, double mut_rate);
 	// Destructor which ensures memory used by TournamentDeme is freed
-	virtual ~TournamentDeme();
+	virtual ~TournamentDeme() override;
 
-	virtual ClimbChromosome* select_parent() override;
+//	virtual ClimbChromosome* select_parent() override;
 
+	using pop_t = std::vector<ClimbChromosome*>;
+	pop_t pop_;
 };

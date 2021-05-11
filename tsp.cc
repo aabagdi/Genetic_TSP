@@ -5,9 +5,10 @@
  */
 
 #include "cities.hh"
-#include "climb_chromosome.cc"
 #include "deme.hh"
+#include "climb_chromosome.cc"
 #include "tournament_deme.cc"
+
 #include <algorithm>
 #include <cassert>
 #include <cstdlib>
