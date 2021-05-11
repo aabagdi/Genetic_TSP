@@ -1,5 +1,8 @@
 #pragma once
+
 #include "deme.hh"
+#include "climb_chromosome.hh"
+
 //Assignment:
 // This class inherits from the Deme class and overrides whatever is necessary in your judgement for
 // your class to replace the parent selection algorithm.
@@ -11,6 +14,14 @@
 // C. Do the same for the next pair, and so forth. You should have P/2 parents in the resulting set.
 // D. Repeat steps B - C until you're left with only one parent.
 
-class TournamentDeme : public deme{
+class TournamentDeme : public Deme{
 
-}
+	// Generate a TournamentDeme of the specified size with all-random chromosomes.
+	// Also receives a mutation rate in the range [0-1].
+	TournamentDeme(const Cities* cities_ptr, unsigned pop_size, double mut_rate);
+	// Destructor which ensures memory used by TournamentDeme is freed
+	virtual ~TournamentDeme();
+
+	virtual ClimbChromosome* select_parent() override;
+
+};
