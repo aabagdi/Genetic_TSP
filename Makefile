@@ -10,7 +10,7 @@ tsp: tsp.o tournament_deme.o deme.o chromosome.o climb_chromosome.o cities.o
 tournament_deme: tournament_deme.o deme.o chromosome.o climb_chromosome.o cities.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
-deme: deme.o chromosome.o cities.o
+deme: deme.o chromosome.o climb_chromosome.o cities.o
 	$(CXX) $(LDFLAGS) -o $@ $^
 
 climb_chromosome: climb_chromosome.o chromosome.o cities.o
