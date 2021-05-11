@@ -6,9 +6,16 @@ Climb_chromosme inherits from chromsome
 
 class ClimbChromosome : public Chromosome {
 
+//Implement the derived class' constructor
+ClimbChromosome(const Cities*);
 
 //Always explicitly write a virtual destructor
 virtual ~ClimbChromosome() = default;
+
+//Override clone
+virtual ClimbChromosome* clone() const override {
+	return new ClimbChromosome(cities_ptr_);
+}
 
 //Overide mutate
 virtual void mutate() override
@@ -69,29 +76,4 @@ virtual void mutate() override
 
 
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
+};
