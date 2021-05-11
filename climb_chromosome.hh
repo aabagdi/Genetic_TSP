@@ -9,6 +9,7 @@ class ClimbChromosome : public Chromosome {
 public:
 //Implement the derived class' constructor
 ClimbChromosome(const Cities*);
+//ClimbChromosome() = default;
 
 //Always explicitly write a virtual destructor
 virtual ~ClimbChromosome() = default;

@@ -97,7 +97,7 @@ ga_search(const Cities& cities,
   auto best_dist = 1e100;
   auto best_ordering = Cities::permutation_t(cities.size());
 
-  Deme tD(&cities, pop_size, mutation_rate);
+  TournamentDeme tD(&cities, pop_size, mutation_rate);
 
   // Evolve the population to make it fitter and keep track of
   // the shortest distance generated
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
   fin >> cities;
   const auto pop_size = atoi(argv[2]);
   const auto mut_rate = atof(argv[3]);
-  constexpr unsigned NUM_ITER = 1000000;
+  constexpr unsigned NUM_ITER = 10000;
   assert(cities.size() > 0 && "Did you actually read the input file successfully?");
 
 

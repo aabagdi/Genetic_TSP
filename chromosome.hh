@@ -19,6 +19,7 @@
 #include <chrono>
 
 class Chromosome {
+protected:
    // Disable public copying of objects for polymorphism:
   Chromosome(const Chromosome&) = delete;
   Chromosome(Chromosome&&) = delete;
