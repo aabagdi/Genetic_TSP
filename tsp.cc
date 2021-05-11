@@ -5,8 +5,9 @@
  */
 
 #include "cities.hh"
+#include "climb_chromosome.cc"
 #include "deme.hh"
-
+#include "tournament_deme.cc"
 #include <algorithm>
 #include <cassert>
 #include <cstdlib>
@@ -95,15 +96,15 @@ ga_search(const Cities& cities,
   auto best_dist = 1e100;
   auto best_ordering = Cities::permutation_t(cities.size());
 
-  Deme deme(&cities, pop_size, mutation_rate);
+  TournamentDeme tournament_deme(&cities, pop_size, mutation_rate);
 
   // Evolve the population to make it fitter and keep track of
   // the shortest distance generated
   for (long i = 1; i <= iters/pop_size; ++i) {
-    deme.compute_next_generation();    // generate next generation
+    tournament_deme.compute_next_generation();    // generate next generation
 
     // Find best individual in this population
-    const auto ordering = deme.get_best()->get_ordering();
+    const auto ordering = tournament_deme.get_best()->get_ordering();
     if (is_improved(cities, ordering, best_dist, i * pop_size)) {
       best_ordering = ordering;
     }
