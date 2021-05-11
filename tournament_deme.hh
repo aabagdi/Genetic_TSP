@@ -25,6 +25,5 @@ public:
 
 //	virtual ClimbChromosome* select_parent() override;
 
-	using pop_t = std::vector<ClimbChromosome*>;
-	pop_t pop_;
+
 };
