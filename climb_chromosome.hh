@@ -22,19 +22,19 @@ virtual void mutate() override
     auto left_swapped = clone();
     if(p == 0){
         //If random index is 0, swap it with the last element of order_
-        std::iter_swap(left_swapped->order_.begin(), left_swapped->order_.end());
+        std::iter_swap(left_swapped->get_ordering().begin(), left_swapped->get_ordering().end());
     }
     //Else swap element at p with element at p - 1
-    std::iter_swap(left_swapped->order_.begin()+ p, left_swapped->order_.begin() + (p - 1));
+    std::iter_swap(left_swapped->get_ordering().begin()+ p, left_swapped->get_ordering().begin() + (p - 1));
     auto left_fitness = left_swapped->get_fitness();    
     //Clone original chromosome for second swap
     auto right_swapped = clone();
-    if(p == right_swapped->order_.size() - 1){
+    if(p == right_swapped->get_ordering().size() - 1){
         //If random index is last element, swap it with the first element
-        std::iter_swap(right_swapped->order_.end(), right_swapped->order.begin());
+        std::iter_swap(right_swapped->get_ordering().end(), right_swapped->get_ordering().begin());
     }
     //Else swap element p with element p + 1
-    std::iter_swap(right_swapped->order_.begin() + p, right_swapped->order_.begin() + (p + 1));
+    std::iter_swap(right_swapped->get_ordering().begin() + p, right_swapped->get_ordering().begin() + (p + 1));
     auto right_fitness = right_swapped->get_fitness();
 
     //Determine the fittest of the 3 possibilities
@@ -51,12 +51,12 @@ virtual void mutate() override
     }
     if(max == right_fitness){
         //right_swapped is fittest
-        order_ = right_swapped->order_;
+        order_ = right_swapped->get_ordering();     //Might be issue with get ordering returning an immutable reference?
         return;
     }
     if(max == left_fitness){
         //left_swapped is fittest   
-        order_ = left_swapped->order_;
+        order_ = left_swapped->get_ordering();
         return;
     }
     return;
