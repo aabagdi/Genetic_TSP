@@ -26,7 +26,7 @@ Deme::Deme(const Cities* cities_ptr, unsigned pop_size, double mut_rate)
 // Clean up as necessary
 Deme::~Deme()
 {
-  for(ClimbChromosome* chrom:pop_){
+  for(Chromosome* chrom:pop_){
   	delete chrom;
   }
 }
@@ -41,7 +41,7 @@ Deme::~Deme()
 void Deme::compute_next_generation()
 {
   //Vector of chromosome pairs to store mutated chromosmes
-  std::vector<ClimbChromosome*> mutated_chromosomes;
+  std::vector<Chromosome*> mutated_chromosomes;
   //Initialize random number generator
   //std::random_device rd;
   //generator_ = std::default_random_engine(rd());
@@ -61,7 +61,7 @@ void Deme::compute_next_generation()
 	    second_parent->mutate();
     }
     //Store potentially mutated pair in vector
-    std::pair<ClimbChromosome*, ClimbChromosome*> new_pair = first_parent->recombine(second_parent);
+    auto new_pair = first_parent->recombine(second_parent);
     //Unpack vector of chromosome pairs into vector of chromosomes
     mutated_chromosomes.push_back(new_pair.first);
     mutated_chromosomes.push_back(new_pair.second);
@@ -75,27 +75,27 @@ void Deme::compute_next_generation()
 }
 
 // Return a copy of the chromosome with the highest fitness.
-bool comp_fit(ClimbChromosome* city_a, ClimbChromosome* city_b)
+bool comp_fit(Chromosome* city_a, Chromosome* city_b)
 { //used for comparisons in get best
 	  return city_a->get_fitness() < city_b->get_fitness();
 }
 
 //Finds chromosome with best fit
 //
-const ClimbChromosome* Deme::get_best() const
+const Chromosome* Deme::get_best() const
 { 
 	return *std::max_element(pop_.begin(), pop_.end(), comp_fit); 
 
 }
 
 // Function for parameter of std::accumulate, as used in select_parent().
-double fitnessAccumulation(double sum, ClimbChromosome* chromosome){
+double fitnessAccumulation(double sum, Chromosome* chromosome){
 	return sum - chromosome->get_fitness(); // Add the fitness of chromosome to sum and return it.
 }
 
 // Randomly select a chromosome in the population based on fitness and
 // return a pointer to that chromosome.
-ClimbChromosome* Deme::select_parent()
+Chromosome* Deme::select_parent()
 {
 	double sumOfFitness = std::accumulate(pop_.begin(), pop_.end(), 0.0, fitnessAccumulation); // Use STL to find sum.
 
@@ -107,7 +107,7 @@ ClimbChromosome* Deme::select_parent()
 	double P = 0.0; // Initialize P.
 
 
-	for(ClimbChromosome* chromo:pop_){ // For each chromosome in our population...
+	for(Chromosome* chromo:pop_){ // For each chromosome in our population...
 
 		P -= chromo->get_fitness(); // Add the fitness of the chromosome to P.
 
