@@ -4,7 +4,7 @@
 
 # `ClimbChromosome`
 
-## `mutate()` **Unclaimed**
+## `mutate()` **Cole**
 
 ## `clone()` **Unclaimed**
 
