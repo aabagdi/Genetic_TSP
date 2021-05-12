@@ -2,7 +2,9 @@
 
 **By: Aadit Bagdi, Cole Nemec, Julian Prince, and Taylor Blair**
 
+# How to make
 
+To make, run `make tsp`
 
 # Results! 
 
