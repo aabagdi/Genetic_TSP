@@ -17,11 +17,7 @@ TournamentDeme::TournamentDeme(const Cities *cities_ptr, unsigned int pop_size, 
 
 }
 
-TournamentDeme::~TournamentDeme()  {
-	for(Chromosome* climbChromo:pop_){ // Free memory used by the population.
-		delete climbChromo;
-	}
-}
+TournamentDeme::~TournamentDeme()  = default;
 
 Chromosome *TournamentDeme::select_parent() { // Currently, this select_parent() uses ClimbChromosome, though we are permitted to use Chromosome if we choose!
 	// Amount of parents we're going to take.

@@ -134,7 +134,7 @@ int main(int argc, char** argv)
 //  const auto best_ordering = exhaustive_search(cities);
 //  const auto best_ordering = randomized_search(cities, NUM_ITER);
     const auto best_ordering = ga_search(cities, NUM_ITER, pop_size, mut_rate);
-
+  std::cout << "Completed" << std::endl;
   auto out = std::ofstream("shortest.tsv");
   if (!out.is_open()) {
     std::cerr << "Can't open output file to record shortest path!\n";
