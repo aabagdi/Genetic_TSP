@@ -8,7 +8,7 @@ To make, run `make tsp`
 
 # Results! 
 ## Comparison:
-![comparison](images/comparison.gif)
+![comparison](comparison.gif)
 
 ![new-challenge-route](images/shortest.gif) 
 
