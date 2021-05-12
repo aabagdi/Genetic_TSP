@@ -14,6 +14,9 @@
 // C. Do the same for the next pair, and so forth. You should have P/2 parents in the resulting set.
 // D. Repeat steps B - C until you're left with only one parent.
 
+
+//To Do:
+// * Override compute_next_generation
 class TournamentDeme : public Deme{
 
 public:
@@ -23,7 +26,7 @@ public:
 	// Destructor which ensures memory used by TournamentDeme is freed
 	virtual ~TournamentDeme() override;
 
-//	virtual ClimbChromosome* select_parent() override;
+	virtual Chromosome* select_parent() override;
 
 
 };
