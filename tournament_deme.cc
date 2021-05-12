@@ -25,7 +25,7 @@ TournamentDeme::~TournamentDeme()  {
 
 Chromosome *TournamentDeme::select_parent() { // Currently, this select_parent() uses ClimbChromosome, though we are permitted to use Chromosome if we choose!
 	// Amount of parents we're going to take.
-	unsigned P = 32; // P must be a constant power of 2, and must be <= the size of the population, otherwise issues with this method may occur.
+	unsigned P = 16; // P must be a constant power of 2, and must be <= the size of the population, otherwise issues with this method may occur.
 	if(P > pop_.size()){throw std::logic_error("Tournament P is too great. Ensure it's between 0 and the size of the TournamentDeme's population.");}
 
 	std::vector<Chromosome*> parent_pop(P); // Make a vector for our parents, of size P.
