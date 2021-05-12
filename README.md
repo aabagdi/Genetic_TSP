@@ -14,6 +14,9 @@
 
 ![new-challenge-route](images/shortest.gif) 
 
+![new-speed](images/speed.gif)
+
+
 With the update we were able to achieve a path of 12,492.6 in 9,500 iterations.
 
 For context, here is the previous best route and time it took
