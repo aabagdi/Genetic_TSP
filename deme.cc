@@ -52,12 +52,7 @@ void Deme::compute_next_generation()
     auto second_parent = select_parent();
     double first_rand = distr(generator_);
     double second_rand = distr(generator_);
-
-// FOR DEBUGGING
-	auto pre_mut_first_parent  = first_parent->clone();
-	auto pre_mut_second_parent = second_parent->clone();
-
-	std::cout << pre_mut_first_parent->get_fitness() << pre_mut_second_parent->get_fitness() << std::endl;
+    
 
     //If random num <= mutation rate, mutate the assosciated child
     if(first_rand <= mut_rate_){
