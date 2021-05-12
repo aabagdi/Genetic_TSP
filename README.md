@@ -4,15 +4,25 @@
 
 # `ClimbChromosome`
 
-## `mutate()` **Cole**
+## `mutate()` 
 
-## `clone()` **Unclaimed**
+## `clone()`
 
-# `Tournament Deme` **Unclaimed**
+# `Tournament Deme` 
 
-# Report the Results!  **Unclaimed**
+# Report the Results! 
 
-# Extra Credit! **Included tentatively - we don't have to do this part**
+![new-challenge-route](images/shortest.gif) 
+
+With the update we were able to achieve a path of 12,492.6 in 9,500 iterations.
+
+For context, here is the previous best route and time it took
+![old-challenge-route](images/challenge_route.gif) 
+*The* `shortest.tsv` *in the upper right is a formatting mistake.*
+
+It took 100,000 iterations to find that route.
+
+![old-challenge-speed](images/challenge_speed.gif)
 
 # Notes
 
